@@ -1,0 +1,42 @@
+#preorder
+class Node:
+  def __init__(self, data):
+    self.data = data
+    self.left = None
+    self.right=None
+     
+def insert(root,newVal):
+    if root is None:
+        root=Node(newVal)
+        return root
+    if newVal<root.data:
+        root.left=insert(root.left,newVal)
+    else:
+        root.right=insert(root.right,newVal)
+    return root
+def preorder(root):
+        if root==None:
+            return
+        print(root.data)
+        preorder(root.left)
+        preorder(root.right)                   
+root= insert(None,15)
+insert(root,10)
+insert(root,25)
+insert(root,6)
+insert(root,14)
+insert(root,20)
+insert(root,60)
+print("Printing values of binary tree in preorder Traversal.")
+preorder(root)
+
+
+output:
+Printing values of binary tree in preorder Traversal.
+15
+10
+6
+14
+25
+20
+60
